@@ -22,15 +22,10 @@ fn is_safe(row : &Vec<i32>) -> i32 {
 fn solve_1opt(row : &Vec<i32>) -> i32 {
     
     for i in 0..row.len() {
-        let mut temp = vec![];
-        for j in 0..row.len() {
-            if i == j {
-                continue;
-            }
-            temp.push(row[j] as i32);
-        }
+        let mut row_1opt = row.clone();
+        row_1opt.remove(i);        
 
-        if is_safe(&temp) == 1 {
+        if is_safe(&row_1opt) == 1 {
             return 1;
         }
     }
