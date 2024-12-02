@@ -11,7 +11,7 @@ fn is_safe(row : Vec<i32>) -> i32 {
     for i in 2..row.len() {
         let next = row[i] - row[i - 1];
         
-        if next > 0 && prev < 0 || next == 0 || next.abs() > 3 {
+        if prev * next < 0 || next == 0 || next.abs() > 3 {
             return 0;
         }
         prev = next;
